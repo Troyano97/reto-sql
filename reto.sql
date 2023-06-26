@@ -42,8 +42,17 @@ UPDATE tabla_gatos SET llegaron_acompañados = "llego junto a Seiko" WHERE id_re
 
 SELECT * FROM tabla_gatos;
 
+
+/* se agrego la columna dieta, si el peso es mayor a 4 devuelve 1 de lo contraio 0(1=debe hacer dieta) */
+
 ALTER TABLE tabla_gatos
 ADD COLUMN dieta BOOLEAN NOT NULL DEFAULT false AFTER peso;
 
 UPDATE tabla_gatos
 SET dieta = (peso > 4);
+
+/* se agrega los años faltantes para la jubilacion*/
+ALTER TABLE tabla_gatos ADD COLUMN anios_jubilacion INT AFTER edad;
+
+UPDATE tabla_gatos SET anios_jubilacion = 11 - edad;
+
