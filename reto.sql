@@ -28,7 +28,7 @@ INSERT INTO tabla_gatos (nombre,apodo,edad,peso,caracteristicas,color,color_ojos
 ("Nathan","Ninja nate",7,4.5,"le encanta esconderse","negro","amarillentos");
 
 
-/* Se elimino la base de datos, se volcio a hacer mejorada y mas simple */
+/* Se elimino la base de datos, se volvio a hacer mejorada y mas simple */
 
 UPDATE tabla_gatos SET apodo = NULL WHERE apodo = "";
 
@@ -41,3 +41,9 @@ UPDATE tabla_gatos SET llegaron_acompañados = "llego junto a Sunny" WHERE id_re
 UPDATE tabla_gatos SET llegaron_acompañados = "llego junto a Seiko" WHERE id_registro = 4;
 
 SELECT * FROM tabla_gatos;
+
+ALTER TABLE tabla_gatos
+ADD COLUMN dieta BOOLEAN NOT NULL DEFAULT false AFTER peso;
+
+UPDATE tabla_gatos
+SET dieta = (peso > 4);
