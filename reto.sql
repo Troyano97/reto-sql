@@ -32,8 +32,9 @@ INSERT INTO tabla_gatos (nombre,apodo,edad,peso,caracteristicas,color,color_ojos
 
 UPDATE tabla_gatos SET apodo = NULL WHERE apodo = "";
 
-ALTER TABLE tabla_gatos ADD COLUMN llegaron_acompañados VARCHAR(50);
+ALTER TABLE tabla_gatos ADD COLUMN llegaron_acompaniados VARCHAR(50);
 
+/* modifica el valor "" para que duelve NULL*/
 UPDATE tabla_gatos SET llegaron_acompañados = NULL WHERE apodo = "";
 
 UPDATE tabla_gatos SET llegaron_acompañados = "llego junto a Sunny" WHERE id_registro = 1;
@@ -55,4 +56,8 @@ SET dieta = (peso > 4);
 ALTER TABLE tabla_gatos ADD COLUMN anios_jubilacion INT AFTER edad;
 
 UPDATE tabla_gatos SET anios_jubilacion = 11 - edad;
+
+/* se elimino la base de datos, los datos agregados no se actualizan automaticamente */
+INSERT INTO tabla_gatos (nombre,apodo,edad,peso,caracteristicas,color,color_ojos) VALUES ("Toffee","Tofesito",4,3.4,"le gusta jugar y estar solo a veces","blanco con gris","verdosos"),
+("Chucky","",10,4.3,"le gusta dormir y caminar","naranja con blanco","amarillentos");
 
